@@ -12,7 +12,7 @@ def fetchDetails():
     host_name = socket.gethostname()
     ip = socket.gethostbyname(host_name)
     
-    return host_name, ip
+    return str(host_name), str(ip)
 
 
 @app.route("/")
@@ -52,6 +52,20 @@ def details():
         trmplate html: index.html
     """
     return render_template("index.html")
+    
+@app.route("/details_host")
+def details_dinamico():
+    """
+    Creando un endpoint simples para la API com html dinamico
+    http://127.0.0.1:5000/details_host
+
+    Returns:
+        trmplate html: index.html
+    """
+    hostname, ip = fetchDetails()
+    
+    
+    return render_template("index_host.html", hostname=hostname, ip=ip)
     
 
 if __name__ == "__main__":
