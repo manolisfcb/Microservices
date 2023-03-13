@@ -26,6 +26,10 @@ Pasos 1 y 2 están fuera del objetivo del tutorial
 
 ## Paso 3 Crear el ambiente Virtual
 
-Para crear un ambiente virtual en python 3 necesitamos estar la carpeta donde va a estar nuestro proyecto y luego usar el siguiente comando:
+3.1 Para crear un ambiente virtual en python 3 necesitamos estar la carpeta donde va a estar nuestro proyecto y luego usar el siguiente comando:
 
-python3 -m -venv <my-env>
+code: python3 -m -venv <my-env>
+
+3.2 Para instalar las dependencias necesarias usar el archivo requirements.txt
+
+code: pip install -r requirements.txt
