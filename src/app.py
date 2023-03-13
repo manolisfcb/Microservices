@@ -1,6 +1,18 @@
 from flask import Flask, jsonify, render_template
+import socket
 app = Flask(__name__)
 
+
+def fetchDetails():
+    """
+    It returns the hostname and IP address of the machine on which the function is executed.
+    :return: The hostname and IP address of the machine.
+    """
+
+    host_name = socket.gethostname()
+    ip = socket.gethostbyname(host_name)
+    
+    return host_name, ip
 
 
 @app.route("/")
