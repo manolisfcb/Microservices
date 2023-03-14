@@ -2,7 +2,6 @@ from flask import Flask, jsonify, render_template
 import socket
 app = Flask(__name__)
 
-
 def fetchDetails():
     """
     It returns the hostname and IP address of the machine on which the function is executed.
@@ -39,7 +38,7 @@ def health_check():
         json: {"status": "OK"}
     """
 
-    resp = jsonify({"status": "OK"})
+    resp = jsonify(status = "UP")
     return resp
 
 @app.route("/details")
@@ -69,4 +68,5 @@ def details_dinamico():
     
 
 if __name__ == "__main__":
-    app.run()
+
+    app.run(host="0.0.0.0", port=5000, debug=True)

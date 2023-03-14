@@ -33,3 +33,29 @@ code: python3 -m -venv <my-env>
 3.2 Para instalar las dependencias necesarias usar el archivo requirements.txt
 
 code: pip install -r requirements.txt
+
+## Paso 5 Crear el docker image:
+"""https://tecadmin.net/how-to-create-and-run-a-flask-application-using-docker/"""
+
+1 Crear un archivo llamado Dockerfile el el directorio del proyecto.
+2 Añade el siguiente codigo al archivo creado:
+    
+    #Cargar una imagen de python para tu docker image
+    FROM python:3-alpine
+
+    # Crar un directorio para la aplicacion
+    WORKDIR /app
+
+    # istalar las dependencias del proyecto en tu imagen
+    COPY requirements.txt ./
+
+    RUN pip install -r requirements.txt
+
+    # Bundle app source
+    COPY . .
+
+    #Selecciona el puerto por el cual vas a rodar la aplicacion 
+    EXPOSE 5000
+
+    # Ejecuta el comando en el terminal para rodar la aplicacion
+    CMD [ "flask", "run","--host","0.0.0.0","--port","5000"]
