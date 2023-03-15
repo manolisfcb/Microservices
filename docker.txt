@@ -1,0 +1,59 @@
+Comandos de docker:
+
+
+## Crando Imagenes
+
+#Este comando se usa para ver todas las imagenes que tenemos descargadas en nuestro computador
+$docker images
+
+#Este comando se usa para descargar nuevas imagenes para nuestro computador
+$docker pull <nome_da_imagen>  #puedes añadir la version de la imagen <nome_imagen:version>
+
+
+#Este comando es para borrar todas las imagenes
+$docker rmi -f $(docker images -aq)
+
+
+#Este comando es para borrar una imagen en especifico 
+#docker image rm <python:3.10>
+
+## Creando Conteiners
+
+#Este comando es para crear un contenedor
+$docker create <images_name>     #exemplo:  $docker create python:3.10
+
+                                ó
+$docker container create <images_name>     #exemplo:  $docker container create python:3.10
+
+
+#Este comando es para ver todos los container que estan rodando en nuestro computador
+#docker ps
+
+El comando docker ps devuelve una tabla:
+
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS              PORTS       NAMES
+afccb63a24e0   mongo     "docker-entrypoint.s…"   4 minutes ago   Up About a minute   27017/tcp   strange_pare
+
+
+
+#Este comando es para detener un contenedor
+$docker stop afccb63a24e0
+
+#Este comando es para ver absolutamente todos los contenedores que estan el en computador
+$docker ps -a
+
+# Este comando es para crear un contenedor con un nombre especifico
+$docker create --name <my_name> images
+
+### PASOS PARA CREAR UN CONTENEDOR:
+    1 Descargar o Crear una imagen
+    2 Crear una red
+    3 Crear un contenedor 
+        Asignar puertos
+        Asignar nombre
+        Asignar variables de entorno
+        Especificar a cual red pertenece
+        Indicar de cual imagen se quiere crear imagen:etiqueta
+
+### Afortunadamente existe docker-compouse!!!!!!
+
