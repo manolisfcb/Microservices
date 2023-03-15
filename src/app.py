@@ -56,7 +56,7 @@ def details():
 def details_dinamico():
     """
     Creando un endpoint simples para la API com html dinamico
-    http://127.0.0.1:5000/details_host
+    http://127.0.0.1:5000/details_host/
 
     Returns:
         trmplate html: index.html
